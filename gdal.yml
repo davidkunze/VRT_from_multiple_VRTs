@@ -1,0 +1,21 @@
+name: gdal
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - gdal=3.9.0
+  - geopandas
+  - fiona
+  - rasterio
+  - pyproj
+  - shapely
+  - scikit-learn
+  - pandas
+  - numpy
+  - matplotlib
+  - tqdm
+  - requests
+  - jinja2
+  - pip
+  - pip:
+      - folium
