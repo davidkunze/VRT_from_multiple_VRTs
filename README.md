@@ -1,3 +1,6 @@
+# Creating VRT from VRTs
+
+It is possible to create an VRT from existing VRTs but the performance seems to be bad.
 
 ```python
 import os
@@ -34,11 +37,13 @@ with open(input_list_txt_cog, 'w') as file:
     file.write(input_data_str)
     file.close()
 ```
-create an overview (.ovr) file for VRTs
+# create an overview (.ovr) file for VRTs
+
 first try: merge all existing .vrt.ovr files to tif and create an ovr from tif 
   - takes long to write 
   - slow to read --> bad performance in QGIS
   - needs a lot of storage space
+
 second try: create an .vrt.ovr from existing .vrt.ovr files using gdalbuildvrt
   - very fast to write
   - fast to read  --> good performance in QGIS
