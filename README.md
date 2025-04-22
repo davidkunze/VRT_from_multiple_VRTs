@@ -1,6 +1,8 @@
 # Creating VRT from VRTs
 
-It is possible to create an VRT from existing VRTs but the performance seems to be bad.
+It is possible to create a VRT from existing VRTs but the performance seems to be bad. Two things improved the performance:
+1. Build VRT using data paths from original images do not build VRT based of VRTs.
+2. Use existing overview files (.vrt.ovr) and create new .vrt.ovr-file using gdalbuildvrt (fast to write, fast to read, needs almost no storage space)
 
 ```python
 import os
