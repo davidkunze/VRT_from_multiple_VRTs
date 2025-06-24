@@ -4,8 +4,8 @@ import subprocess
 import pathlib
 
 
-input_folders = [r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\he\flugzeug\2022\he_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\he\flugzeug\2023\he_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2021\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2022\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2023\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2024\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\sh\flugzeug\2021\sh_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\sh\flugzeug\2022\sh_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\st\flugzeug\2022\st_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\st\flugzeug\2023\st_lverm\tdop\daten']
-out_path = r"\\lb-srv\LB-Projekte\fernerkundung\luftbild\nwfva\flugzeug\2024\lverm\tdop\daten"
+input_folders = [r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\he\flugzeug\2022\he_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\he\flugzeug\2023\he_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2022\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2023\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2024\ni_lverm\tdop\daten',  r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\ni\flugzeug\2025\ni_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\sh\flugzeug\2021\sh_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\sh\flugzeug\2022\sh_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\st\flugzeug\2022\st_lverm\tdop\daten', r'\\lb-srv\LB-Projekte\fernerkundung\luftbild\st\flugzeug\2023\st_lverm\tdop\daten']
+out_path = r"\\lb-srv\LB-Projekte\fernerkundung\luftbild\nwfva\flugzeug\2025\lverm\tdop\daten"
 vrt_name = 'nwfva_lverm_tdop.vrt'
 vrt =  os.path.join(out_path, vrt_name)
 
@@ -41,7 +41,7 @@ with open(input_list_txt_vrt_ovr, 'w') as file:
     file.close()
 
 buildvrtString = 'gdalbuildvrt -overwrite -b 1 -b 2 -b 3 -allow_projection_difference -input_file_list '+ input_list_txt_cog + ' ' + vrt
-# subprocess.run(buildvrtString)
+subprocess.run(buildvrtString)
 
 buildvrtString = 'gdalbuildvrt -overwrite -b 1 -b 2 -b 3 -allow_projection_difference -input_file_list '+ input_list_txt_vrt_ovr + ' ' + vrt + '.ovr'
 subprocess.run(buildvrtString)
